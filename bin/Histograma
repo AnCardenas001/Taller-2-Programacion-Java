@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class ContadorPositivosNegativos {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int numerosPositivos = 0;
+        int numerosNegativos = 0;
+        while (true) {
+            System.out.print("Ingrese un número entero (Termine con 0): ");
+            int valor = scanner.nextInt();
+            if (valor == 0) {
+                break;
+            } else if (valor > 0) {
+                numerosPositivos++;
+            } else {
+                numerosNegativos++;
+            }
+        }
+        scanner.close();
+
+        System.out.println("Valores positivos:");
+        for (int i = 0; i < numerosPositivos; i++) {
+            System.out.print("* ");
+        }
+        System.out.println(); 
+        System.out.println("Valores negativos:");
+        for (int i = 0; i < numerosNegativos; i++) {
+            System.out.print("* ");
+        }
+    }
+}

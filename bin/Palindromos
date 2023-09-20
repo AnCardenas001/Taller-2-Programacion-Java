@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Palindromo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese un número: ");
+        int numero = scanner.nextInt();
+
+        if (esPalindromo(numero)) {
+            System.out.println(numero + " es un palíndromo.");
+        } else {
+            System.out.println(numero + " no es un palíndromo.");
+        }
+
+        scanner.close();
+    }
+
+    public static boolean esPalindromo(int numero) {
+        int original = numero;
+        int invertido = 0;
+
+        while (numero > 0) {
+            int digito = numero % 10;
+            invertido = invertido * 10 + digito;
+            numero = numero / 10;
+        }
+
+        return original == invertido;
+    }
+}

@@ -1,0 +1,38 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class MedianaLista {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numeros = new ArrayList<>();
+
+        System.out.println("Ingrese números ordenados (ingrese '.' para finalizar):");
+
+        while (true) {
+            String entrada = scanner.nextLine();
+
+            if (entrada.equals(".")) {
+                break;
+            }
+
+            int numero = Integer.parseInt(entrada);
+            numeros.add(numero);
+        }
+
+        int n = numeros.size();
+
+        if (n % 2 == 1) {
+            // Si la cantidad de números es impar, la mediana es el número en la mitad de la lista
+            int mediana = numeros.get(n / 2);
+            System.out.println("La mediana es: " + mediana);
+        } else {
+            // Si la cantidad de números es par, la mediana es el promedio de los dos números en la mitad
+            int mediana1 = numeros.get(n / 2 - 1);
+            int mediana2 = numeros.get(n / 2);
+            double mediana = (mediana1 + mediana2) / 2.0;
+            System.out.println("La mediana es: " + mediana);
+        }
+
+        scanner.close();
+    }
+}
